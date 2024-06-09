@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('title')
-    Transaksi | Catshop Admin
+    Transaksi | Be Feature Admin
 @endsection
+
 @section('content')
     <h3>Transaction</h3>
     <button type="button" class="btn btn-tambah">
@@ -24,19 +25,26 @@
                 <tr>
                     <td>{{ $transaction->updated_at }}</td>
                     <td>{{ $transaction->nama }}</td>
-                    <td>{{ $transaction->category->nama}}</td>
+                    <td>{{ optional($transaction->category)->nama ?? 'N/A' }}</td> <!-- Handle null category -->
                     <td>Rp. {{ number_format($transaction->harga) }}</td>
                     <td>{{ $transaction->status }}</td>
-                    <td style='display: none;'>{{ $transaction->nomorhp }}</td>
                     <td>
-                        <button class='btn_detail' data-nomorhp='{{ $transaction->nomorhp }}'
-                            onclick='showDetails("{{ $transaction->updated_at }}", "{{ $transaction->nama }}", "{{ $transaction->category->nama}}", "{{ $transaction->harga }}", "{{ $transaction->status }}")'>Detail</button>
+                        <button class="btn_detail" onclick='showDetails("{{ $transaction->updated_at }}", "{{ $transaction->nama }}", "{{ optional($transaction->category)->nama ?? 'N/A' }}", "{{ $transaction->harga }}", "{{ $transaction->status }}")'>Detail</button>
                     </td>
-                @empty
+                </tr>
+            @empty
                 <tr>
                     <td colspan="6" align="center">Tidak ada data</td>
                 </tr>
             @endforelse
         </tbody>
     </table>
+@endsection
+
+@section('scripts')
+    <script>
+        function showDetails(tanggal, nama, kategori, harga, status) {
+            alert(`Tanggal: ${tanggal}\nNama: ${nama}\nKategori: ${kategori}\nHarga: Rp. ${Number(harga).toLocaleString()}\nStatus: ${status}`);
+        }
+    </script>
 @endsection

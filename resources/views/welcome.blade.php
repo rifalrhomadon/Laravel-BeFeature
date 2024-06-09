@@ -35,8 +35,8 @@
         <main>
             <div class="jumbotron">
                 <div class="jumbotron-text">
-                    <h1>Cari Kucing Kecil Barumu, Jadilah Temannya</h1>
-                    <p>Teman barumu yang lucu menunggu mu, ayo temukan mereka sekarang</p>
+                    <h1>Tersulutkan Dalam Cahaya: Bersinar Bersama Musik Favoritmu!</h1>
+                    <p>Terangi Setiap Konser dengan Lighstickmu Sendiri! Dukung Grup Favoritmu dan Bergabunglah dalam Sorakan Bersama dengan Koleksi Lighstick yang Memukau.</p>
                     <button type="button" class="btn_getStarted">Mulai</button>
                 </div>
                 <div class="jumbotron-img">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="cards-categories">
-                <h2>Kategori Kucing</h2>
+                <h2>Kategori Lighstick</h2>
                 <div class="card-categories">
                     @if (count($categories) == 0)
                         <h3 style="text-align: center; color: red;">Data Kosong</h3>
@@ -171,7 +171,7 @@
 
         </main>
         <footer>
-            <h4>&copy; Lab Pemrograman Komputer 2023</h4>
+            <h4>&copy; Be Feature</h4>
         </footer>
     </div>
     <script>
